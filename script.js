@@ -88,28 +88,24 @@ function playsongornot(data)
 function playsong()
 {
 	var res = encodeURI(window.songpicked)
-    var youtubeUrl = "https://www.youtube.com/results?search_query=" + res
+    	var youtubeUrl = "https://www.youtube.com/results?search_query=" + res
 	alert(youtubeUrl)
     //var getHTML    = file_get_contents(youtubeUrl)
-	$.post("F:\Web_Jarvis\phpfiles\index.php", { url: youtubeUrl }, function(data) {
-    window.youtubeoplist = data        
+	$.post("index.php", { url: youtubeUrl }, function(data) {
+    	window.youtubeoplist = data        
 	});
 	alert(window.youtubeoplist)
-    var pattern   = '/<a href="\/watch\?v=(.*?)"/i'
+    	var pattern   = '/<a href="\/watch\?v=(.*?)"/i'
 	var match 	  = pattern.exec(window.youtubeoplist)
 	alert(match)
-    if(match!= "")
+    	if(match!= "")
 	{
-       var videoID    = match[1]
-	   alert(videoID)
-    }
+       		var videoID    = match[1]
+	   	alert(videoID)
+    	}
 }
 
-function file_get_contents(filename) {
-  fetch(filename).then((resp) => resp.text()).then(function(data) {
-    return data;
-  });
-}
+
 
 
 
