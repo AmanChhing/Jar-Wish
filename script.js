@@ -106,8 +106,8 @@ function playsong()
 	// assign url
 	ifrm.setAttribute('src', youtubeurl);
 	
-	
-	clickframe()
+	eventFire(document.getElementById('iframe'), 'click');
+	//clickframe()
 	//var res = encodeURI(window.songpicked)
     	//var youtubeUrl = "https://www.youtube.com/results?search_query=" + res
 	//alert(youtubeUrl)
@@ -125,6 +125,16 @@ function playsong()
        	//	var videoID    = matchs[1]
 	 //  	alert(videoID)
     	//}
+}
+
+function eventFire(el, etype){
+  if (el.fireEvent) {
+    el.fireEvent('on' + etype);
+  } else {
+    var evObj = document.createEvent('Events');
+    evObj.initEvent(etype, true, false);
+    el.dispatchEvent(evObj);
+  }
 }
 
 function clickframe()
