@@ -92,15 +92,16 @@ function playsong()
 	alert(youtubeUrl)
     //var getHTML    = file_get_contents(youtubeUrl)
 	$.post("index.php", { url: youtubeUrl }, function(data) {
+	alert(data.toString())
     	window.youtubeoplist = data        
 	});
 	alert(window.youtubeoplist)
     	var pattern   = '/<a href="\/watch\?v=(.*?)"/i'
-	var match 	  = pattern.exec(window.youtubeoplist)
-	alert(match)
+	var matchs     = window.youtubeoplist.match(pattern)
+	alert(matchss)
     	if(match!= "")
 	{
-       		var videoID    = match[1]
+       		var videoID    = matchs[1]
 	   	alert(videoID)
     	}
 }
