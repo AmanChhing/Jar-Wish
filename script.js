@@ -90,9 +90,12 @@ function playsong()
 	//var res = encodeURI(window.songpicked)
 	var ifrm = document.createElement('iframe');
 	ifrm.setAttribute('id', 'ifrm'); // assign an id
-	ifrm.setAttribute('height', 500); // set height
-	ifrm.setAttribute('width', 600); // set width
-	ifrm.setAttribute('allow', autoplay); // set width
+	ifrm.setAttribute('height', '450'); // set height
+	ifrm.setAttribute('width', '600'); // set width
+	ifrm.setAttribute('allow', 'autoplay'); // set width
+	ifrm.setAttribute('gesture', 'media'); // set width
+	ifrm.setAttribute('frameborder', '0'); // set width
+	ifrm.setAttribute('encrypted-media', 'allowfullscreen'); // set width
 	var youtubeurl = "https://www.youtube.com/embed?listType=search&list="+window.songpicked
 	document.body.appendChild(ifrm); // to place at end of document
 	
