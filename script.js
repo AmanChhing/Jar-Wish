@@ -98,8 +98,8 @@ function playsong()
 	alert(window.youtubeoplist)
     	var pattern   = '/<a href="\/watch\?v=(.*?)"/i'
 	var matchs     = window.youtubeoplist.match(pattern)
-	alert(matchss)
-    	if(match!= "")
+	alert(matchs)
+    	if(matchs!= "")
 	{
        		var videoID    = matchs[1]
 	   	alert(videoID)
