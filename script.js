@@ -87,10 +87,22 @@ function playsongornot(data)
 
 function playsong()
 {
-	var res = encodeURI(window.songpicked)
-    	var youtubeUrl = "https://www.youtube.com/results?search_query=" + res
-	alert(youtubeUrl)
-    //var getHTML    = file_get_contents(youtubeUrl)
+	
+	var ifrm = document.createElement('iframe');
+	ifrm.setAttribute('id', 'ifrm'); // assign an id
+	var youtubeurl = "https://www.youtube.com/embed?listType=search&list="+window.songpicked
+	document.body.appendChild(ifrm); // to place at end of document
+
+	// to place before another page element
+	//var el = document.getElementById('marker');
+	//el.parentNode.insertBefore(ifrm, el);
+
+	// assign url
+	ifrm.setAttribute('src', youtubeurl);
+	//var res = encodeURI(window.songpicked)
+    	//var youtubeUrl = "https://www.youtube.com/results?search_query=" + res
+	//alert(youtubeUrl)
+    	//var getHTML    = file_get_contents(youtubeUrl)
 	$.post("index.php", { url: youtubeUrl }, function(data) {
 	alert(data.toString())
     	window.youtubeoplist = data        
