@@ -106,6 +106,7 @@ function playsong()
 	// assign url
 	ifrm.setAttribute('src', youtubeurl);
 	
+	
 	clickframe()
 	//var res = encodeURI(window.songpicked)
     	//var youtubeUrl = "https://www.youtube.com/results?search_query=" + res
@@ -128,7 +129,8 @@ function playsong()
 
 function clickframe()
 {
-	document.getElementById("ifrm").click()
+	$('#ifrm').trigger("click")
+	//document.getElementById("ifrm").click()
 }
 
 
